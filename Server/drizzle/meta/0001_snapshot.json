@@ -1,0 +1,178 @@
+{
+  "id": "e59e9436-6cd2-4ec7-a4aa-2d32d3190e2f",
+  "prevId": "b8bb9b1c-0dda-424d-a62a-ff868b6fadea",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.locations": {
+      "name": "locations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "locationAddress": {
+          "name": "locationAddress",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "locationLatitude": {
+          "name": "locationLatitude",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "locationLongitude": {
+          "name": "locationLongitude",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.locations_to_routes": {
+      "name": "locations_to_routes",
+      "schema": "",
+      "columns": {
+        "locations_id": {
+          "name": "locations_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "routes_id": {
+          "name": "routes_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "locations_to_routes_locations_id_locations_id_fk": {
+          "name": "locations_to_routes_locations_id_locations_id_fk",
+          "tableFrom": "locations_to_routes",
+          "tableTo": "locations",
+          "columnsFrom": [
+            "locations_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "locations_to_routes_routes_id_routes_id_fk": {
+          "name": "locations_to_routes_routes_id_routes_id_fk",
+          "tableFrom": "locations_to_routes",
+          "tableTo": "routes",
+          "columnsFrom": [
+            "routes_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "locations_to_routes_locations_id_routes_id_pk": {
+          "name": "locations_to_routes_locations_id_routes_id_pk",
+          "columns": [
+            "locations_id",
+            "routes_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.routes": {
+      "name": "routes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "routeName": {
+          "name": "routeName",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "userName": {
+          "name": "userName",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "userPassword": {
+          "name": "userPassword",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "userRole": {
+          "name": "userRole",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
